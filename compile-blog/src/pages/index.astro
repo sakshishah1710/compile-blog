@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+// Reads whatever the generator has actually written - no hardcoded
+// posts. New files committed by the Netlify function show up here
+// automatically on the next deploy.
+const allPosts = await getCollection('posts');
+const sorted = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const [featured, ...rest] = sorted;
+const today = new Date();
+---
+<Layout title="Compile. — cloud & DevOps, compiled daily">
+  <div class="kicker">
+    <b>{sorted.length} posts</b> — {today.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+    · Cloud &amp; DevOps, compiled daily
+  </div>
+
+  {featured && (
+    <div class="featured">
+      <span class="topic-chip">{featured.data.topic}</span>
+      <h1><a href={`/posts/${featured.slug}`}>{featured.data.title}</a></h1>
+      <p class="dek">{featured.data.dek}</p>
+      <div class="meta">{featured.data.date.toLocaleDateString()} · via {featured.data.sourceName}</div>
+    </div>
+  )}
+
+  <div class="grid">
+    {rest.map((post) => (
+      <div class="card">
+        <span class="topic-chip">{post.data.topic}</span>
+        <h2><a href={`/posts/${post.slug}`}>{post.data.title}</a></h2>
+        <p>{post.data.dek}</p>
+      </div>
+    ))}
+  </div>
+
+  {sorted.length === 0 && (
+    <p class="empty">No posts yet — run <code>npm run generate-digest</code> (with ANTHROPIC_API_KEY set) to generate the first ones.</p>
+  )}
+</Layout>

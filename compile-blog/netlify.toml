@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+# Runs every 3 hours. Cron syntax: minute hour day month weekday
+[functions."generate-digest"]
+  schedule = "0 */3 * * *"

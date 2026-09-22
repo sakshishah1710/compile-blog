@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+<Layout title={post.data.title}>
+  <a href="/" class="back">&larr; back to today's briefing</a>
+  <span class="topic-chip">{post.data.topic}</span>
+  <h1>{post.data.title}</h1>
+  <div class="meta">
+    {post.data.date.toLocaleDateString()} ·
+    <a href={post.data.sourceUrl} target="_blank" rel="noopener">source: {post.data.sourceName}</a>
+  </div>
+  <article>
+    <Content />
+  </article>
+  <div class="tags">
+    {post.data.tags.map((tag) => <span>{tag}</span>)}
+  </div>
+</Layout>
