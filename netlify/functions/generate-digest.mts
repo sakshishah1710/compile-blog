@@ -5,7 +5,7 @@ import path from 'node:path';
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_REPO = process.env.GITHUB_REPO; // e.g. "yourname/compile-blog"
-const GITHUB_BRANCH = process.env.GITHUB_BRANCH || 'main';
+const GITHUB_BRANCH = process.env.GITHUB_BRANCH || 'master';
 
 // Netlify functions run in an ephemeral filesystem and don't have
 // git access, so we write the file locally (for local runs / testing)
