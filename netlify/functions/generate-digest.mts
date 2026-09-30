@@ -1,18 +1,53 @@
 import type { Config } from '@netlify/functions';
-import { runDigestGeneration } from '../../lib/generateDigest.mjs';
-import fs from 'node:fs/promises';
-import path from 'node:path';
+import { generateArticles } from '../../lib/generateDigest.mjs';
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_REPO = process.env.GITHUB_REPO; // e.g. "yourname/compile-blog"
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH || 'master';
 
-// Netlify functions run in an ephemeral filesystem and don't have
-// git access, so we write the file locally (for local runs / testing)
-// AND push it straight to GitHub via the Contents API. Netlify's
-// build hook then picks up the new commit and redeploys the site.
+const POSTS_PATH = 'src/content/posts';
+
+function assertConfigured() {
+  const missing = [];
+  if (!GITHUB_TOKEN) missing.push('GITHUB_TOKEN');
+  if (!GITHUB_REPO) missing.push('GITHUB_REPO');
+  if (missing.length) {
+    throw new Error(
+      `Missing required environment variable(s): ${missing.join(', ')}. ` +
+      `Set these in Netlify \u2192 Project configuration \u2192 Environment variables.`
+    );
+  }
+}
+
+// Netlify Functions run on an ephemeral, read-only-for-source filesystem
+// with no git access - so instead of writing files locally, we read the
+// current post list and write new posts straight through GitHub's
+// Contents API. Netlify's GitHub integration then picks up that new
+// commit and redeploys the site automatically.
+async function listExistingPostFilenames(): Promise<Set<string>> {
+  const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${POSTS_PATH}?ref=${GITHUB_BRANCH}`;
+  const res = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${GITHUB_TOKEN}`,
+      Accept: 'application/vnd.github+json'
+    }
+  });
+
+  if (res.status === 404) {
+    // Folder doesn't exist in the repo yet - treat as "no posts yet".
+    return new Set();
+  }
+  if (!res.ok) {
+    throw new Error(`GitHub list failed: ${res.status} ${await res.text()}`);
+  }
+
+  const data = await res.json();
+  const names = Array.isArray(data) ? data.map((f: { name: string }) => f.name) : [];
+  return new Set(names);
+}
+
 async function commitFileToGitHub(filename: string, content: string) {
-  const filePath = `src/content/posts/${filename}`;
+  const filePath = `${POSTS_PATH}/${filename}`;
   const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${filePath}`;
 
   const res = await fetch(url, {
@@ -23,7 +58,7 @@ async function commitFileToGitHub(filename: string, content: string) {
     },
     body: JSON.stringify({
       message: `Auto: add post ${filename}`,
-      content: Buffer.from(content).toString('base64'),
+      content: Buffer.from(content, 'utf-8').toString('base64'),
       branch: GITHUB_BRANCH
     })
   });
@@ -34,17 +69,19 @@ async function commitFileToGitHub(filename: string, content: string) {
 }
 
 export default async () => {
-  const written = await runDigestGeneration();
+  assertConfigured();
 
-  // Push each newly generated file to GitHub so it deploys for real.
-  const postsDir = path.join(process.cwd(), 'src', 'content', 'posts');
-  for (const filename of written) {
-    const content = await fs.readFile(path.join(postsDir, filename), 'utf-8');
-    await commitFileToGitHub(filename, content);
+  const existingFilenames = await listExistingPostFilenames();
+
+  // Scheduled runs generate 1 post to keep AI Gateway usage predictable.
+  const written = await generateArticles({ existingFilenames, maxItems: 1, hoursBack: 24 });
+
+  for (const { filename, markdown } of written) {
+    await commitFileToGitHub(filename, markdown);
   }
 
   return new Response(
-    JSON.stringify({ ok: true, newPosts: written }),
+    JSON.stringify({ ok: true, newPosts: written.map((w) => w.filename) }),
     { headers: { 'Content-Type': 'application/json' } }
   );
 };
