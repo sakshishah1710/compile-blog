@@ -1,0 +1,10 @@
+---
+title: "AWS Well-Architected Agent merges Trusted Advisor and Well-Architected Tool with AI"
+dek: "Preview release combines two existing AWS optimization services into a single AI-powered agent that correlates metrics and prioritizes recommendations by business context."
+topic: "AWS"
+tags: ["aws", "well-architected", "trusted-advisor", "cost-optimization"]
+date: 2026-10-02
+sourceName: "AWS What's New"
+sourceUrl: "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-well-architected-agent/"
+---
+<h2>What's changing</h2><p>AWS is previewing the Well-Architected Agent, positioning it as the successor to both Trusted Advisor and the Well-Architected Tool. Instead of running separate assessments through different interfaces, teams get a unified service that analyzes infrastructure across the traditional pillars: cost, security, performance, and reliability.</p><h2>The AI angle</h2><p>The core difference is automation and context. Where Trusted Advisor flagged individual resource issues and Well-Architected required manual questionnaire completion, this agent correlates metrics across your environment and ties recommendations to stated business goals. It's pulling from the same rule sets but attempting to surface what actually matters to your workload rather than generic best practices.</p><h2>What it doesn't solve</h2><p>This is still recommendations, not enforcement. You're getting prioritized suggestions, not automatic remediation. The quality depends entirely on how well you define business context and whether the AI accurately maps technical findings to priorities. Early preview means expect rough edges in correlation accuracy.</p><h2>Practical takeaway</h2><p>If you're currently ignoring hundreds of Trusted Advisor checks or never finishing Well-Architected reviews, the consolidation and prioritization could cut through noise. Worth testing in non-production to see if its context modeling matches your actual priorities before trusting it for critical workloads.</p>
