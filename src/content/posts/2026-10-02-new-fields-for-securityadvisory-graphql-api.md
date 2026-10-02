@@ -1,0 +1,10 @@
+---
+title: "GitHub expands SecurityAdvisory GraphQL API with five new fields"
+dek: "The GraphQL API now surfaces CVE IDs and additional advisory metadata without requiring REST API calls."
+topic: "Security"
+tags: ["github", "graphql", "security-advisories", "api"]
+date: 2026-10-02
+sourceName: "GitHub Changelog"
+sourceUrl: "https://github.blog/changelog/2026-10-02-new-fields-for-securityadvisory-graphql-api"
+---
+<h2>What Changed</h2><p>GitHub's SecurityAdvisory object in the GraphQL API now includes five new fields that previously required fallback to the REST API. The most notable addition is <code>cveId</code>, which directly exposes CVE identifiers. This expansion means developers can now query more of the GitHub Advisory Database through a single GraphQL request instead of mixing API paradigms.</p><h2>Why This Matters</h2><p>If you're building security scanning tools or dependency dashboards that pull from GitHub's advisory data, you can now simplify your integration code. GraphQL's ability to request exactly the fields you need becomes more valuable when those fields actually exist. Teams that previously maintained dual API clients—GraphQL for some fields, REST for others—can consolidate around GraphQL where it makes sense.</p><h2>What It Doesn't Do</h2><p>This is a data exposure change, not a new vulnerability detection feature. The underlying advisory database hasn't expanded; you're just getting better API access to what's already there. If you're already using the REST API successfully, there's no forcing function to migrate.</p><h2>Practical Takeaway</h2><p>Review your security tooling that integrates with GitHub's advisory data. If you're currently making REST calls specifically to grab CVE IDs or other metadata, you can likely eliminate those calls and fetch everything through GraphQL. For new integrations, start with GraphQL—the field coverage gap just got smaller.</p>
