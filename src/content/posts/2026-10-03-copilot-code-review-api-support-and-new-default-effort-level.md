@@ -1,0 +1,10 @@
+---
+title: "GitHub Copilot code review now available via API with configurable effort levels"
+dek: "GitHub ships REST and GraphQL endpoints for Copilot code reviews, letting you trigger AI-assisted reviews programmatically with three effort settings."
+topic: "CI/CD"
+tags: ["github", "copilot", "code-review", "api"]
+date: 2026-10-03
+sourceName: "GitHub Changelog"
+sourceUrl: "https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level"
+---
+<h2>What changed</h2><p>GitHub Copilot code review is no longer UI-only. You can now trigger reviews through both REST and GraphQL APIs, with per-request control over the effort level: light, balanced, or deep. The default has shifted from light to balanced, meaning you'll get more thorough reviews unless you explicitly opt down.</p><h2>Why this matters for pipelines</h2><p>Programmatic access means you can wire Copilot reviews into CI workflows, pull request automation, or custom tooling. Instead of waiting for developers to manually request a review in the GitHub UI, you can enforce it as a pipeline step or trigger it conditionally based on diff size, file patterns, or team policy. The effort-level parameter lets you balance speed and thoroughness: use light for trivial changes, balanced for most PRs, and deep for high-risk code paths.</p><h2>What it doesn't do</h2><p>This is still AI-assisted review, not a replacement for human judgment or static analysis tools. Copilot won't catch every logic bug, security flaw, or architectural misstep. Treat it as an extra signal, not a gate. You'll also need to handle API rate limits and consider token costs if you're running reviews on every commit.</p><h2>Practical next step</h2><p>If you're already using GitHub Actions or have webhook-driven PR automation, add a Copilot review call for PRs over a certain size or touching sensitive modules. Start with the balanced effort level and measure whether the signal-to-noise ratio justifies the latency and cost in your workflow.</p>
