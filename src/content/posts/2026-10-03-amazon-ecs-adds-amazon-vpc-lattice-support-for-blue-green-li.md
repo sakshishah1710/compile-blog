@@ -1,0 +1,10 @@
+---
+title: "ECS now shifts VPC Lattice traffic during blue/green deployments"
+dek: "Amazon ECS now handles gradual traffic migration for services using VPC Lattice, eliminating manual orchestration during rollouts."
+topic: "AWS"
+tags: ["ecs", "vpc-lattice", "blue-green", "aws"]
+date: 2026-10-03
+sourceName: "AWS What's New"
+sourceUrl: "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-ecs-vpc-lattice-blue-green-deployments"
+---
+<h2>What changed</h2><p>Amazon ECS now natively supports blue/green, linear, and canary deployment strategies for services that use Amazon VPC Lattice as their networking layer. Previously, when you used VPC Lattice for cross-VPC or cross-account service communication, ECS couldn't automatically manage traffic shifting during deployments—you had to orchestrate that yourself or accept all-at-once updates.</p><h2>Why it matters</h2><p>VPC Lattice is AWS's newer service mesh for connecting services across VPC and account boundaries without managing load balancers or peering connections. If you've adopted it, you've likely been stuck writing custom deployment logic to gradually shift traffic between task sets. This built-in support means ECS now handles the traffic weighting directly, the same way it does for ALB-based services. You get safer rollouts without additional tooling.</p><h2>What to know</h2><p>This applies specifically to ECS services configured to use VPC Lattice target groups. If you're using Application Load Balancers or Network Load Balancers, nothing changes—those already supported managed deployments. The win here is parity: VPC Lattice services can now use the same CodeDeploy-style deployment configurations (10% every 10 minutes, all-at-once blue/green, etc.) that ALB services have had for years. Check your ECS service definitions if you've been waiting to enable safer deployments on Lattice-backed services.</p>
