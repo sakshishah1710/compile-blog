@@ -1,0 +1,10 @@
+---
+title: "AWS Health launches version catalog to track software lifecycle across services"
+dek: "New centralized view shows end-of-support dates for runtime versions, databases, and other software across your AWS accounts."
+topic: "AWS"
+tags: ["aws", "lifecycle-management", "operations", "support"]
+date: 2026-10-03
+sourceName: "AWS What's New"
+sourceUrl: "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-health-introduces-version-catalog-software-lifecycle-management"
+---
+<h2>What changed</h2><p>AWS Health now includes a version catalog that aggregates lifecycle information for software versions running across AWS services. The catalog surfaces which versions you're using and when they reach end-of-support. It's accessible through the AWS Health Dashboard for customers on Business Support Plus, Enterprise Support, or Unified Support plans.</p><h2>Why it matters</h2><p>Before this, tracking end-of-life dates meant manually monitoring announcements for Lambda runtimes, RDS engines, EKS versions, and dozens of other services. The version catalog centralizes that data in one place. You can now see upcoming deprecations before they become incidents instead of discovering them when a deployment fails or a security scan flags an EOL runtime.</p><h2>What it doesn't solve</h2><p>This is purely informational—it won't upgrade anything for you or block deployments on deprecated versions. It also requires a premium support tier, so teams on Basic or Developer support won't have access. You'll still need to build your own processes for acting on this data.</p><h2>Practical takeaway</h2><p>If you're on an eligible support plan, add the version catalog to your quarterly review process. Use it to build a 90-day upgrade roadmap for resources approaching EOL. For teams without premium support, this is a reminder to maintain your own tracking spreadsheet or consider tools like AWS Config rules that flag specific deprecated versions.</p>
