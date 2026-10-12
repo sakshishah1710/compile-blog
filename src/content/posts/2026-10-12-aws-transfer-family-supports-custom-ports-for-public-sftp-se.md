@@ -1,0 +1,10 @@
+---
+title: "AWS Transfer Family now supports custom ports for public SFTP servers"
+dek: "You can now configure up to three ports per server and choose communication modes, ending the previous port 22 limitation."
+topic: "AWS"
+tags: ["aws", "sftp", "transfer-family", "networking"]
+date: 2026-10-12
+sourceName: "AWS What's New"
+sourceUrl: "https://aws.amazon.com/about-aws/whats-new/2026/10/transfer-family-custom-ports-sftp/"
+---
+<h2>What changed</h2><p>AWS Transfer Family's public SFTP servers previously accepted connections only on port 22 using server-first communication. Now you can configure up to three custom ports on a single server and select the communication mode for each port independently.</p><h2>Why this matters</h2><p>This addresses a common integration pain point: legacy clients or compliance requirements that mandate non-standard ports. Instead of running multiple Transfer Family servers or complex port forwarding setups, you can handle different client requirements on one endpoint. The ability to choose communication modes per port means you can support clients that initiate SFTP sessions differently without forcing everything through a single pattern.</p><h2>What it doesn't solve</h2><p>This is specifically for public SFTP servers. If you're using VPC-internal endpoints or other Transfer Family protocols (FTPS, FTP), those configurations remain unchanged. The three-port maximum means you'll still need multiple servers if you're consolidating more than three distinct client types with different port requirements.</p><h2>Practical takeaway</h2><p>If you're running multiple Transfer Family servers solely to accommodate different client port requirements, audit your setup. Consolidating to fewer servers with custom port configurations will reduce costs and simplify management. Check your current client connection patterns before migrating—knowing which communication modes they use will prevent connection issues during the transition.</p>
