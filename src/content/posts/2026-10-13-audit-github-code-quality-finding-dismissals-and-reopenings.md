@@ -1,0 +1,10 @@
+---
+title: "GitHub adds audit logging for Code Quality finding dismissals"
+dek: "Organization and enterprise admins can now track when developers manually dismiss or reopen security and code quality findings."
+topic: "Security"
+tags: ["github", "security", "audit-logs", "compliance"]
+date: 2026-10-13
+sourceName: "GitHub Changelog"
+sourceUrl: "https://github.blog/changelog/2026-10-13-audit-github-code-quality-finding-dismissals-and-reopenings"
+---
+<h2>What changed</h2><p>GitHub now logs dismissals and reopenings of Code Quality findings to organization and enterprise audit logs. This applies to findings that appear in a repository's default-branch backlog, giving security and compliance teams visibility into who is dismissing alerts and when.</p><h2>Why it matters</h2><p>Manual dismissals of security findings have long been a compliance blind spot. Developers might dismiss legitimate issues as false positives, or overlook real vulnerabilities under deadline pressure. Without audit trails, security teams had no systematic way to review these decisions or identify patterns of risky dismissals across repositories.</p><h2>What it doesn't solve</h2><p>This feature doesn't prevent dismissals or provide automated review of dismissal justifications. It's purely observability—you still need to actively monitor your audit logs and establish processes for reviewing dismissal patterns. Organizations will need to build their own analysis workflows around this data.</p><h2>Practical takeaway</h2><p>If you manage GitHub at the organization or enterprise level, configure audit log streaming to capture these events. Focus on repositories with compliance requirements first, and establish a regular review cadence for dismissed findings. Look for patterns like specific developers dismissing multiple findings, or dismissals concentrated around release dates.</p>
