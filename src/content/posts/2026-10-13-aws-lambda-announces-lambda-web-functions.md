@@ -1,0 +1,10 @@
+---
+title: "AWS Lambda Web Functions let your code handle HTTP directly"
+dek: "New Lambda primitive runs Express, Hono, and other HTTP frameworks without adapters—your code listens on a port like a normal server."
+topic: "AWS"
+tags: ["lambda", "serverless", "http", "aws"]
+date: 2026-10-13
+sourceName: "AWS What's New"
+sourceUrl: "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-lambda-web-functions/"
+---
+<h2>What changed</h2><p>AWS Lambda introduced Lambda Web Functions, a different execution model where your function code runs an HTTP server that listens on a port. Instead of processing individual events through handlers, your code uses standard web frameworks—Express, Hono, or any HTTP server—exactly as you would in a container or VM. No adapters, no API Gateway integration wrappers, no function-specific configuration.</p><h2>Why this matters (and what it doesn't do)</h2><p>This closes a persistent gap for developers who want Lambda's operational simplicity but need frameworks that assume a long-running HTTP server. Server-side rendering engines and AI inference endpoints often expect to bind to a port and handle streaming requests directly. Previously, you either shoehorned these into event handlers with shims, or you moved to containers on ECS/Fargate and gave up Lambda's scaling and pricing model.</p><p>It doesn't replace the existing event-driven Lambda model, which remains better for queue processing, S3 triggers, and other non-HTTP workloads. This is an additional primitive for HTTP-first use cases.</p><h2>Practical takeaway</h2><p>If you've been running inference APIs or SSR apps in containers solely because Lambda's event model was awkward, Lambda Web Functions remove that friction. You get sub-second cold starts and pay-per-request pricing with code that looks like a normal Node or Python HTTP server. Evaluate this for workloads where you want Lambda economics but framework compatibility was blocking you.</p>
