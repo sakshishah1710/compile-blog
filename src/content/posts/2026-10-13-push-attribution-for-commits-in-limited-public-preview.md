@@ -1,0 +1,10 @@
+---
+title: "GitHub now tracks who pushed each commit, not just who wrote it"
+dek: "Push attribution adds a third identity layer to commits, recording the authenticated user behind each push alongside author and committer."
+topic: "Security"
+tags: ["github", "security", "git", "audit"]
+date: 2026-10-13
+sourceName: "GitHub Changelog"
+sourceUrl: "https://github.blog/changelog/2026-10-12-push-attribution-public-preview"
+---
+<h2>What changed</h2><p>GitHub is rolling out push attribution in limited public preview. The platform now durably records which authenticated user actually pushed each commit to a repository. This information appears in both the UI and API, joining the existing author and committer fields that have been part of Git since the beginning.</p><h2>Why the extra identity layer matters</h2><p>Git's author and committer fields are self-reported and trivial to spoof—anyone can claim to be anyone in their local Git config. Push attribution solves this by capturing who was authenticated to GitHub when the push happened. This creates an audit trail that organizations can trust: you now know not just who wrote code, but who had the credentials to land it in your repository.</p><h2>What this doesn't solve</h2><p>Push attribution tells you who pushed, but it doesn't validate that the pusher should have been the author. Someone with write access can still push commits claiming to be from other people. This is identity verification for the push event itself, not a code signing mechanism. For cryptographic proof of authorship, you still need commit signing.</p><h2>Practical takeaway</h2><p>If you manage repositories with multiple contributors or enforce compliance policies, this data matters. Check whether your security tooling can consume push attribution from GitHub's API. For incident response, you now have a verified trail of who pushed what—useful when local Git history has been rewritten or when investigating compromised accounts.</p>
