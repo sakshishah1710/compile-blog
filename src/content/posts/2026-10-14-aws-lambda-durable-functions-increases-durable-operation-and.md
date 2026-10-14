@@ -1,0 +1,10 @@
+---
+title: "AWS Lambda durable functions gets 10x operation limit and 4x larger checkpoints"
+dek: "Lambda durable functions now supports 30,000 operations per execution and 1 MB checkpoint payloads, removing previous bottlenecks for complex workflows."
+topic: "AWS"
+tags: ["lambda", "serverless", "aws", "durable-functions"]
+date: 2026-10-14
+sourceName: "AWS What's New"
+sourceUrl: "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-lambda-durable-gen-limit-increase/"
+---
+<h2>What changed</h2><p>AWS Lambda durable functions previously capped executions at 3,000 durable operations and 256 KB checkpoint payloads. As of today, those limits jump to 30,000 operations and 1 MB payloads respectively. Durable operations track state transitions within a single Lambda execution that needs to survive failures or restarts.</p><h2>Why it matters</h2><p>The previous 3,000-operation ceiling hit teams building iterative workflows—think polling loops, batch processors with item-level retries, or complex compensation logic when a step fails. The 256 KB checkpoint constraint also forced premature chunking of intermediate state. With these new limits, you can handle deeper loops and richer context without artificially splitting logic across multiple Lambda invocations or moving to Step Functions.</p><h2>What it doesn't solve</h2><p>This is still Lambda—you're working within a single execution's lifetime and memory footprint. If your workflow naturally spans hours or requires human approval gates, Step Functions remains the right tool. Durable functions shine when you need transactional semantics and automatic retries within a bounded task, not orchestration across services.</p><h2>Practical takeaway</h2><p>Audit any Lambda durable functions hitting operation limits or checkpoint size errors. Most can now consolidate logic that was previously split for quota reasons. The change is backward-compatible and requires no code updates—existing functions automatically benefit from the higher ceilings.</p>
