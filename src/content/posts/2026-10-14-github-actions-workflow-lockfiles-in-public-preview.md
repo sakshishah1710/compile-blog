@@ -1,0 +1,10 @@
+---
+title: "GitHub Actions adds workflow lockfiles to pin third-party action versions"
+dek: "Enterprise Cloud customers can now lock workflow dependencies to specific commits, preventing the supply chain risk of tags and branches shifting after code review."
+topic: "CI/CD"
+tags: ["github-actions", "supply-chain", "ci/cd", "security"]
+date: 2026-10-14
+sourceName: "GitHub Changelog"
+sourceUrl: "https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview"
+---
+<h2>What changed</h2><p>GitHub released workflow lockfiles for Actions in public preview, available to GitHub Enterprise Cloud customers. The feature lets you pin third-party actions to specific commit SHAs rather than relying on mutable tags or branches. When you reference an action like <code>actions/checkout@v4</code>, that tag can technically be moved to point at different code after you've reviewed it—lockfiles prevent that scenario.</p><h2>Why it matters</h2><p>This addresses a real supply chain security gap. Many teams review their workflow dependencies, but tags like <code>v1</code> or <code>main</code> can be updated by action maintainers or compromised in an attack. Lockfiles work like <code>package-lock.json</code> or <code>Gemfile.lock</code>: you review the action once, the lockfile records the exact commit SHA, and subsequent runs use that frozen version. It's defense against both malicious updates and unintentional breaking changes.</p><h2>What this doesn't solve</h2><p>Lockfiles protect against dependency drift, but you still need a process to update them. You'll want tooling or policy to periodically refresh lockfiles when upstream actions release security patches. Think of this as locking your dependencies, not ignoring them—you're trading surprise changes for deliberate update cycles.</p><h2>The takeaway</h2><p>If you're on Enterprise Cloud and use third-party actions, enable lockfiles in your organization settings and regenerate them for critical workflows. Treat this like adopting dependency lockfiles in any other project: lock what matters, and build a cadence for reviewing updates.</p>
