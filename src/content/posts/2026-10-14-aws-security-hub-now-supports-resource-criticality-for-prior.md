@@ -1,0 +1,10 @@
+---
+title: "Security Hub adds resource criticality tags to exposure scoring"
+dek: "AWS now lets you weight finding severity by business importance, so production database alerts surface before dev sandbox issues."
+topic: "Security"
+tags: ["security-hub", "aws", "vulnerability-management", "prioritization"]
+date: 2026-10-14
+sourceName: "AWS What's New"
+sourceUrl: "https://aws.amazon.com/about-aws/whats-new/2026/10/security-hub-resource-criticality/"
+---
+<h2>What changed</h2><p>Security Hub can now factor resource criticality into its exposure prioritization algorithm. You define criticality levels (like "Very High") using automation rules that match on account, region, or resource type. The service applies these rules to existing inventory and new resources automatically as they're discovered.</p><h2>Why it matters</h2><p>Most security tools treat a medium-severity finding on a production database the same as one on a sandbox EC2 instance. This creates noise: security teams drown in alerts that don't reflect actual business risk. By tagging resources with criticality, you shift focus from raw vulnerability counts to what actually threatens revenue or compliance.</p><h2>What it doesn't solve</h2><p>This is scoring metadata, not remediation logic. You still need runbooks and response plans once a critical resource shows an exposure. It also won't retroactively fix poorly scoped IAM policies or auto-patch vulnerabilities—it just helps you see the important ones first.</p><h2>Practical takeaway</h2><p>Start with one dimension: mark production account resources as high criticality, everything else default. Watch how your alert queue reorders. If the top 10 findings now map to actual business services, expand the rules. If not, your criticality definitions need work before you invest more time in tuning.</p>
