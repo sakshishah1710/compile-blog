@@ -1,0 +1,10 @@
+---
+title: "GitHub expands HydraFusion with new Max tier and updated model pool"
+dek: "GitHub's multi-model orchestration system gets a higher-tier option alongside improvements to its routing and model selection."
+topic: "General"
+tags: ["github", "copilot", "ai", "developer-tools"]
+date: 2026-10-15
+sourceName: "GitHub Changelog"
+sourceUrl: "https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option"
+---
+<h2>What changed</h2><p>GitHub has updated HydraFusion, its system for orchestrating multiple AI models within Copilot. The update includes a refreshed model pool, improved routing workflows that determine which model handles which task, and a new "HydraFusion Max" tier. Both the standard and Max versions are now available across GitHub's Copilot surfaces: VS Code extension, the standalone Copilot app, and GitHub.com.</p><h2>Why it matters</h2><p>HydraFusion represents GitHub's approach to avoiding single-model lock-in by dynamically selecting from multiple providers based on the task at hand. The addition of a Max tier suggests differentiation in either model selection, response quality, or performance characteristics—though GitHub hasn't specified what distinguishes Max from standard HydraFusion. The updated orchestration workflows likely mean better task-to-model matching, potentially improving suggestion relevance across different coding contexts.</p><h2>What to watch</h2><p>If you're using GitHub Copilot, you may notice differences in response patterns or quality as the updated model pool takes effect. Organizations evaluating Copilot should clarify whether HydraFusion Max requires additional licensing or comes with existing enterprise tiers. The lack of detail about Max's specific advantages means teams should test both options against their actual workflows before committing to the higher tier.</p>
