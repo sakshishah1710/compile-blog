@@ -1,0 +1,10 @@
+---
+title: "C++ language server auto-configures MSBuild projects in GitHub Copilot CLI"
+dek: "Microsoft's C++ language server now extracts MSBuild compile commands automatically, removing a manual configuration step for Windows developers."
+topic: "General"
+tags: ["github", "copilot", "developer-tools", "cpp"]
+date: 2026-11-10
+sourceName: "GitHub Changelog"
+sourceUrl: "https://github.blog/changelog/2026-11-10-c-language-server-now-auto-configures-msbuild-builds"
+---
+<h2>What changed</h2><p>GitHub's C++ language server for Copilot CLI now includes an embedded MSBuild compile commands extractor that runs automatically. Previously, developers needed to manually discover and execute the extraction tool to get IntelliSense and code completion working with MSBuild-based C++ projects.</p><h2>Why it matters</h2><p>This addresses a specific friction point for Windows C++ developers using Visual Studio's MSBuild system. The language server needs compile commands to understand project structure, includes, and defines—information MSBuild doesn't expose in a standard format. Bundling the extractor and invoking it automatically means one less setup step between opening a project and getting useful AI assistance.</p><h2>What it doesn't solve</h2><p>This applies specifically to MSBuild projects—CMake, Make, and other build systems already have their own mechanisms for exposing compile commands. The change also doesn't affect the core language server functionality, just the configuration path for a subset of Windows C++ projects.</p><h2>The practical takeaway</h2><p>If you're working with C++ in GitHub Copilot CLI on Windows MSBuild projects, the language server should now "just work" without manual compile commands extraction. For teams with mixed build systems, you still need the appropriate configuration for each—but MSBuild is now one less thing to document in your onboarding.</p>
