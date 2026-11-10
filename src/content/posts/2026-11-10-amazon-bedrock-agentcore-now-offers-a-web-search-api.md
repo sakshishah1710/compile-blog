@@ -1,0 +1,10 @@
+---
+title: "Amazon Bedrock AgentCore adds standalone Web Search API"
+dek: "AWS launches a direct API for web search in Bedrock AgentCore, removing the need to route through the MCP Gateway."
+topic: "AWS"
+tags: ["bedrock", "aws", "api", "agents"]
+date: 2026-11-10
+sourceName: "AWS What's New"
+sourceUrl: "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-bedrock-agentcore-web-search-api/"
+---
+<h2>What Changed</h2><p>Amazon Bedrock AgentCore now provides a dedicated <code>InvokeWebSearch</code> API for web searches. Previously, web search functionality was only accessible as an MCP (Model Context Protocol) tool through the AgentCore Gateway. The new API returns ranked search results directly with a single call, requiring no additional infrastructure setup.</p><h2>Why It Matters</h2><p>This simplifies integration for developers building custom agent workflows or data pipelines. Instead of routing through the Gateway layer, applications can now call web search directly as a first-class API primitive. That means fewer moving parts in your architecture and less overhead when you need to augment LLM responses with current web data.</p><h2>What It Doesn't Solve</h2><p>This is a convenience layer, not a search innovation. You're still using Bedrock's search backend—the API just streamlines access. If you already have web search working via MCP tools and don't need the direct integration, there's no functional change to your results or capabilities.</p><h2>Practical Takeaway</h2><p>If you're building agents or pipelines that need web context, check whether direct API access simplifies your stack. For new projects, start with <code>InvokeWebSearch</code> rather than adding Gateway dependencies. For existing MCP-based implementations, evaluate migration only if reducing architectural complexity is a current pain point.</p>
