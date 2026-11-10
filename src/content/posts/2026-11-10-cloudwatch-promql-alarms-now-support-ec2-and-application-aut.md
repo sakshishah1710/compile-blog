@@ -1,0 +1,10 @@
+---
+title: "CloudWatch PromQL alarms can now trigger EC2 and Application Auto Scaling"
+dek: "You can finally scale Auto Scaling groups based on OpenTelemetry metrics using PromQL queries."
+topic: "AWS"
+tags: ["cloudwatch", "autoscaling", "prometheus", "opentelemetry"]
+date: 2026-11-10
+sourceName: "AWS What's New"
+sourceUrl: "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cloudwatch-alarms-autoscaling-group-actions"
+---
+<h2>What changed</h2><p>Amazon CloudWatch alarms using Prometheus Query Language (PromQL) now integrate with EC2 Auto Scaling groups and Application Auto Scaling. Previously, you could write PromQL queries for dashboards and alerts, but couldn't use them to trigger scaling actions. Now those same queries can drive both simple and step scaling policies.</p><h2>Why this matters</h2><p>If you're already collecting OpenTelemetry metrics and using PromQL to query them, you no longer need to translate those queries into CloudWatch's native metric math just to enable autoscaling. You can use one query language across observability and scaling decisions. This is particularly useful for teams migrating from Prometheus-based systems or standardizing on OpenTelemetry instrumentation—your existing queries now have operational impact beyond monitoring.</p><h2>What it doesn't do</h2><p>This supports simple and step scaling policies, not target tracking. If your autoscaling strategy relies on target tracking (maintain average CPU at 70%, for example), you'll still need CloudWatch's standard metrics. PromQL alarms work for threshold-based scaling where you define explicit steps or actions when a query crosses specific values.</p><h2>Practical takeaway</h2><p>Review your current PromQL queries in CloudWatch. If any correlate with scaling decisions you're making manually or through CloudWatch metric math, you can now wire them directly to Auto Scaling policies. Start with non-production workloads to validate that your PromQL queries trigger at the thresholds you expect before applying to critical services.</p>
