@@ -1,0 +1,10 @@
+---
+title: "AWS STS enables cross-partition federation without long-term credentials"
+dek: "IAM identities can now assume roles across partitions—like commercial to GovCloud—using temporary credentials instead of storing static keys."
+topic: "AWS"
+tags: ["aws", "iam", "security", "govcloud"]
+date: 2026-11-10
+sourceName: "AWS What's New"
+sourceUrl: "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-sts-cross-partition"
+---
+<h2>What changed</h2><p>AWS Security Token Service now supports cross-partition federation. You can use an IAM identity in one AWS partition (like the commercial regions) to assume a role in another partition (like GovCloud US) without storing long-term access keys. This works through temporary credentials issued by STS.</p><h2>Why it matters</h2><p>AWS partitions are isolated groups of regions with separate account namespaces and identity boundaries. Until now, crossing these boundaries required managing static credentials—creating security and operational overhead. This is particularly relevant for organizations operating in both commercial and GovCloud environments, or those with multi-partition compliance requirements.</p><h2>What it doesn't solve</h2><p>This is federation for AWS-to-AWS access only. It doesn't change how partitions work architecturally—they remain separate, and you still need roles configured in both partitions. It also doesn't eliminate the need for cross-partition networking or data transfer planning.</p><h2>Practical takeaway</h2><p>If you're running workloads that span commercial and GovCloud (or other partition combinations), audit where you're storing cross-partition credentials today. You can likely replace those static keys with STS federation, reducing your credential surface area and simplifying rotation workflows.</p>
