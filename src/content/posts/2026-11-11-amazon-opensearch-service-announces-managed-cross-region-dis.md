@@ -1,0 +1,10 @@
+---
+title: "OpenSearch Service adds managed cross-Region disaster recovery"
+dek: "AWS now handles the replication plumbing between OpenSearch domains in different Regions with a single API call."
+topic: "AWS"
+tags: ["opensearch", "disaster-recovery", "aws", "managed-services"]
+date: 2026-11-11
+sourceName: "AWS What's New"
+sourceUrl: "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-opensearch-service-managed-cross-region-disaster-recovery/"
+---
+<h2>What changed</h2><p>Amazon OpenSearch Service now includes managed cross-Region disaster recovery. Previously, if you needed geographic redundancy for OpenSearch, you built and maintained your own replication between domains in different Regions. Now you create domains in two Regions, then pair them through the AWS Management Console or a single API call. AWS handles the ongoing replication.</p><h2>What this doesn't solve</h2><p>This is about disaster recovery, not active-active workloads. You're getting automated standby replication, not multi-Region write capabilities or intelligent traffic routing. If your use case demands sub-second failover or simultaneous writes across Regions, you're still building that coordination layer yourself. The feature targets scenarios where you can tolerate Region-level failures but need guaranteed data presence elsewhere.</p><h2>Practical takeaway</h2><p>If you're running OpenSearch for search, observability, or AI workloads with strict uptime requirements, this removes meaningful operational overhead. Check your existing disaster recovery setup—if you've scripted snapshot restoration or custom replication, AWS is now offering to take that maintenance burden off your plate. The pairing process is straightforward enough that it should be part of production deployment checklists going forward.</p>
