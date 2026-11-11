@@ -1,0 +1,10 @@
+---
+title: "AWS custom billing views can now combine Billing Conductor and Transfer data"
+dek: "You can merge billing group and transfer relationship views into unified cost reports across AWS cost management tools."
+topic: "AWS"
+tags: ["aws", "billing", "finops", "cost-management"]
+date: 2026-11-11
+sourceName: "AWS What's New"
+sourceUrl: "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-billing-and-cost-management-multi-source-custom-billing-views"
+---
+<h2>What changed</h2><p>AWS Billing and Cost Management now lets you use AWS Billing Conductor and AWS Billing Transfer views as source inputs for custom billing views. Previously, custom views were limited to standard cost data. Now you can combine AWS-maintained views for billing groups and transfer relationships into a single custom view, apply filters, and use the result across Cost Explorer, AWS Budgets, and the Billing console.</p><h2>Why this matters for complex billing setups</h2><p>This is useful if you manage multiple billing groups through Billing Conductor—like when reselling AWS or managing cost allocation for subsidiaries—or if you handle billing transfers between accounts. Instead of switching between separate views or exporting multiple reports, you can now create one consolidated view that spans these relationship types. The ability to filter and reuse these views across cost tools means less manual reconciliation.</p><h2>What it doesn't solve</h2><p>This is a visualization and reporting feature. It doesn't change how billing relationships work or alter the underlying cost data. If your billing structure is straightforward—single payer account, no resale model—you won't need this. It's specifically for organizations using Billing Conductor for margin management or Billing Transfer for account ownership changes.</p><h2>Practical takeaway</h2><p>If you're already using Billing Conductor or managing billing transfers, check whether combining these into custom views simplifies your monthly reporting workflow. The feature is available now in all regions where Billing and Cost Management operates, with no additional cost for creating views.</p>
