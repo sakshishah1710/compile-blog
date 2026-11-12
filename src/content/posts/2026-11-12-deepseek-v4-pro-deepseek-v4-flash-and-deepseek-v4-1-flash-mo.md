@@ -1,0 +1,10 @@
+---
+title: "DeepSeek V4 models land on SageMaker JumpStart with MIT licensing"
+dek: "Three new open-weight MoE models bring frontier-class performance to AWS's managed foundation model catalog."
+topic: "AWS"
+tags: ["sagemaker", "machine-learning", "moe", "open-source"]
+date: 2026-11-12
+sourceName: "AWS What's New"
+sourceUrl: "https://aws.amazon.com/about-aws/whats-new/2026/01/deepseek-v4-pro-v4-flash-v4.1-flash-on-sagemaker-jumpstart/"
+---
+<h2>What's new</h2><p>AWS has added DeepSeek's V4-Pro, V4-Flash, and V4.1-Flash models to SageMaker JumpStart. All three are Mixture-of-Experts (MoE) language models released under the MIT license, making them available for commercial use without restrictive licensing constraints. The models target reasoning, coding, and agentic workloads—use cases where structured thinking and tool-calling matter more than raw creative generation.</p><h2>Why the MoE architecture matters here</h2><p>MoE models activate only a subset of parameters per inference, which translates to lower compute costs compared to dense models of similar capability. For teams running frequent inference jobs—code generation pipelines, reasoning chains, or agent orchestration—this efficiency directly impacts your AWS bill. The MIT license removes deployment friction that comes with more restrictive open weights.</p><h2>What to actually do</h2><p>If you're already using SageMaker for model deployment, these models are worth benchmarking against your current setup, especially for reasoning-heavy tasks where latency and cost per token matter. JumpStart handles the packaging and endpoint creation, so you can deploy and test without custom container work. Compare inference costs and task performance against both proprietary APIs and your existing open models before committing to production.</p>
