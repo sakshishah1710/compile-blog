@@ -1,0 +1,10 @@
+---
+title: "AWS Network Security Manager expands to European Sovereign Cloud and 31 new regions"
+dek: "AWS's centralized security policy tool now covers sovereign cloud infrastructure alongside broader regional availability."
+topic: "AWS"
+tags: ["aws", "network-security", "compliance", "sovereign-cloud"]
+date: 2026-11-12
+sourceName: "AWS What's New"
+sourceUrl: "https://aws.amazon.com/about-aws/whats-new/2026/11/network-security-mgr-eu-sovereign-cloud/"
+---
+<h2>What Changed</h2><p>AWS Network Security Manager is now available in the AWS European Sovereign Cloud region and an additional 31 regions worldwide. This marks the service's expansion into AWS's compliance-focused sovereign cloud offering, which is designed to meet EU data residency and operational requirements.</p><h2>Why the Sovereign Cloud Matters</h2><p>The European Sovereign Cloud is AWS's answer to strict EU data governance regulations. Network Security Manager's availability there means organizations with regulatory constraints can now use AWS's centralized security policy management without leaving the sovereign boundary. The 31 additional regions broaden standard deployment options, but the sovereign cloud inclusion is the more significant compliance play.</p><h2>What It Actually Does</h2><p>Network Security Manager provides a single pane for deploying and enforcing security policies across AWS networks. It's aimed at reducing the operational overhead of managing security groups, NACLs, and firewall rules at scale. If you're already managing network security manually across multiple accounts or regions, this is the consolidation tool AWS wants you to adopt.</p><h2>Practical Takeaway</h2><p>If your workloads require EU data residency or you're planning for NIS2 or DORA compliance, you can now include Network Security Manager in your sovereign cloud architecture. For everyone else, check if your regions are in the new 31—this expands where you can centralize network security policy management.</p>
