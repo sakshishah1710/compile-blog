@@ -1,0 +1,10 @@
+---
+title: "Amazon EKS raises etcd limit to 24 GB on 4XL and 8XL control planes"
+dek: "The storage bump from 16 GB gives larger EKS clusters 50% more headroom for Kubernetes objects before hitting state database limits."
+topic: "Kubernetes"
+tags: ["eks", "kubernetes", "etcd", "aws"]
+date: 2026-11-12
+sourceName: "AWS What's New"
+sourceUrl: "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-provisioned-control-plane-larger-etcd-database/"
+---
+<h2>What changed</h2><p>AWS increased the etcd database size for Amazon EKS Provisioned Control Plane 4XL and 8XL tiers from 16 GB to 24 GB. Since etcd is Kubernetes' backing store for all cluster state—pods, deployments, events, ConfigMaps—this directly expands how many objects a single cluster can hold.</p><h2>Why it matters</h2><p>If you've run large EKS clusters, you've likely watched etcd usage creep upward as pod counts and namespaces grow. The 16 GB ceiling forced some teams to either prune aggressively—culling old events and replica history—or shard workloads across multiple clusters. A 24 GB limit buys you runway: more concurrent jobs, longer event retention, and denser multi-tenant setups without architectural surgery.</p><h2>What it doesn't solve</h2><p>This is a ceiling raise, not a performance boost. etcd latency and write throughput remain the same, so if you're hitting watch or list slowdowns, the extra gigabytes won't help. And the change applies only to 4XL and 8XL tiers—smaller control planes keep their existing limits.</p><h2>Practical takeaway</h2><p>Check your current etcd usage with <code>kubectl get --raw /metrics | grep etcd_db_total_size_in_bytes</code>. If you're above 12 GB on a 4XL or 8XL cluster, the new limit gives you breathing room. If you're on a smaller tier and bumping limits, this is a signal to evaluate whether you need to move up or split your cluster.</p>
