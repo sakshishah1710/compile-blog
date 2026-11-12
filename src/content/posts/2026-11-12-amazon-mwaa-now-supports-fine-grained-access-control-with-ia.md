@@ -1,0 +1,10 @@
+---
+title: "Amazon MWAA adds IAM Identity Center integration and multi-team environments"
+dek: "AWS brings fine-grained access control to managed Airflow, letting admins assign permissions at the workflow and resource level instead of all-or-nothing environment access."
+topic: "AWS"
+tags: ["mwaa", "airflow", "iam", "access-control"]
+date: 2026-11-12
+sourceName: "AWS What's New"
+sourceUrl: "https://aws.amazon.com/about-aws/whats-new/2026/11/mwaa-fine-grained-access-control/"
+---
+<h2>What changed</h2><p>Amazon MWAA now supports two new capabilities for access control: IAM Identity Center integration and multi-team environments. Previously, access to MWAA environments was coarse-grained—users typically had broad permissions across the entire Airflow instance. Now administrators can control access at the workflow and resource level, allowing different teams to share infrastructure while maintaining isolation.</p><h2>Why it matters</h2><p>This addresses a common pain point for organizations running Airflow at scale. Before this, teams often ran separate MWAA environments to maintain boundaries, increasing cost and operational overhead. With multi-team environments, you can consolidate workloads while enforcing separation through IAM policies. IAM Identity Center integration means you can leverage your existing identity provider instead of managing Airflow-native authentication separately.</p><h2>What to know</h2><p>Fine-grained access control is most useful if you're currently running multiple MWAA environments purely for isolation between teams or projects. It won't change how Airflow itself works—DAGs, operators, and scheduling remain the same. The feature sits at the AWS layer, controlling who can view, trigger, or modify specific workflows through the Airflow UI and API. Evaluate whether consolidating environments makes sense for your setup before migrating existing workflows.</p>
