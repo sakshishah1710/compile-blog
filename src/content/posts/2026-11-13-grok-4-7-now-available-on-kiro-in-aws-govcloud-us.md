@@ -1,0 +1,10 @@
+---
+title: "Grok 4.7 ships to AWS GovCloud for long-running development tasks"
+dek: "SpaceXSI's latest coding model arrives in GovCloud regions through AWS Kiro, targeting extended compilation and repository-scale work."
+topic: "AWS"
+tags: ["aws", "govcloud", "ai-coding", "kiro"]
+date: 2026-11-13
+sourceName: "AWS What's New"
+sourceUrl: "https://aws.amazon.com/about-aws/whats-new/2026/11/kiro-grok-4-7-aws-govcloud-us/"
+---
+<h2>What Changed</h2><p>AWS has released Grok 4.7 through its Kiro IDE and CLI in GovCloud (US) regions. This is SpaceXSI's latest generation coding model, designed specifically for tasks that run over extended periods—think multi-hour builds, large-scale refactoring, or infrastructure generation across entire repositories.</p><h2>The Technical Angle</h2><p>Grok 4.7's distinguishing feature is error recovery at repository scale. Where previous versions might drift or compound mistakes during long operations, this model checks its work incrementally before proceeding. The improvement over 4.6 centers on planning reliability when working across multiple files and dependencies—critical when you're generating Terraform modules or refactoring service boundaries.</p><h2>Why GovCloud Matters</h2><p>Availability in GovCloud regions means federal agencies and contractors can now use this model under FedRAMP compliance boundaries. That's significant for teams working on classified or controlled unclassified information systems who previously couldn't leverage these AI-assisted development tools within their security perimeter.</p><h2>Practical Takeaway</h2><p>If you're running Kiro in GovCloud environments, Grok 4.7 is available now through the standard IDE and CLI interfaces. Test it on repo-scale operations where you've previously seen models lose context or make cascading errors—that's where the planning improvements should show up most clearly.</p>
