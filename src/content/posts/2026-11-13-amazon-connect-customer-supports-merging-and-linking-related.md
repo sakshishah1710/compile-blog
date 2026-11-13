@@ -1,0 +1,10 @@
+---
+title: "Amazon Connect Cases adds merge and link features for agent workspaces"
+dek: "Agents can now consolidate duplicate cases and connect related issues directly in the workspace, reducing context switching when customers contact support multiple times."
+topic: "AWS"
+tags: ["aws", "amazon-connect", "customer-service", "case-management"]
+date: 2026-11-13
+sourceName: "AWS What's New"
+sourceUrl: "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-connect-cases-merge-link/"
+---
+<h2>What changed</h2><p>Amazon Connect Cases now supports merging and linking related cases within the agent workspace. When customers reach out multiple times about the same issue—or contact support through different channels—agents can merge those separate case records into a single case with consolidated history. They can also link related cases together without full merging.</p><h2>Why it matters</h2><p>This addresses a common support friction point: fragmented case histories. When a customer calls, emails, then chats about the same problem, agents previously had to jump between multiple cases to piece together context. Merging cases puts all that history in one place, which should mean faster resolution and more consistent responses. The linking option preserves separate cases while showing relationships between them.</p><h2>What to consider</h2><p>This is a workspace UI feature, not an automation. Agents still need to identify which cases should be merged or linked—the system won't do it automatically. If your contact center handles high volumes of repeat contacts, consider whether agent training on when to merge versus link cases would help adoption. The feature works within Amazon Connect's case management; it won't consolidate data from external ticketing systems unless they're already integrated.</p>
