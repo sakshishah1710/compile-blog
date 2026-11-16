@@ -1,0 +1,10 @@
+---
+title: "GitHub adds bulk AI security scanning across repositories"
+dek: "GitHub's AI Scan now supports bulk operations, letting you trigger vulnerability scans across multiple repositories at once for languages outside CodeQL's scope."
+topic: "Security"
+tags: ["github", "security-scanning", "ai", "code-analysis"]
+date: 2026-11-16
+sourceName: "GitHub Changelog"
+sourceUrl: "https://github.blog/changelog/2026-11-16-bulk-start-ai-scan-for-repositories"
+---
+<h2>What changed</h2><p>GitHub has added bulk operation support to AI Scan, their security vulnerability detection tool for repositories. Previously, you had to initiate AI Scan on each repository individually. The feature targets a repository's default branch and complements CodeQL by analyzing languages CodeQL doesn't support, while also finding additional security issues in languages CodeQL already covers.</p><h2>Why this matters</h2><p>If you manage multiple repositories—especially those using languages like Python, JavaScript, or Go that aren't fully covered by CodeQL—this removes manual overhead. Instead of clicking through repositories one by one, you can now scan your entire organization's codebase in a single operation. The findings integrate directly into your existing security alerts workflow on GitHub.</p><h2>What it doesn't do</h2><p>This is about operational convenience, not new detection capabilities. AI Scan itself isn't changing—you're just getting a faster way to enable it across repositories. It still scans only default branches, so feature branch vulnerabilities won't surface here. You'll still need CodeQL for comprehensive coverage in supported languages; AI Scan is supplementary.</p><h2>Practical takeaway</h2><p>If you've been hesitant to enable AI Scan because clicking through dozens of repositories felt tedious, that friction is gone. Review your organization's repository list, identify which ones would benefit from additional security analysis, and run a bulk scan. Check the findings against your existing CodeQL alerts to see where the AI analysis adds value.</p>
